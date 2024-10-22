@@ -1,0 +1,62 @@
+---
+const faqItems = [
+  {
+    question: "Què és una instal.lació FV d’autoconsum?",
+    answer:
+      "Una instal.lació solar fotovoltaica d’autoconsum és una instal.lació de plaques solars fotovoltaiques que generen electricitat que utilitzarem pel nostre consum elèctric. Els excedents d’energia que produeixi la solar i que no consumim en la nostra instal.lació interna, es poden abocar a la xarxa elèctrica i vendre o compensar en factura aquests quilowatts segons sigui el tipus de solar instal.lada.",
+  },
+  {
+    question: "Per què ens convé instal.lar plaques solars FV?",
+    answer:
+      "La sostinguda baixada dels costos dels elements d’una instal·lació solar fotovoltaica junt amb l’increment del preu de la tarifa elèctrica han obert les portes a la viabilitat de l’autoconsum fotovoltaic. El preu de l’electricitat no para de pujar any rera any. En els darrers 10 anys s’ha incrementat en més d’un 70% i segueix pujant. Si hi afegim la inflació, el preu que paguem per l’electricitat que consumim augmenta cada any espectacularment. Amb una instal.lació fotovoltaica podem estalviar sobre el 30% de l’electricitat consumida en la nostra factura elèctrica i amortitzar la instal.lació en uns 6/7 anys.",
+  },
+];
+
+import ArrowDownIcon from "../../icons/ArrowDown.astro";
+---
+
+<ul class="w-full flex flex-col justify-center">
+  {
+    faqItems.map((item) => (
+      <li class="w-full">
+        <details
+          class="flex items-center overflow-hidden relative  border-b border-slate-200"
+          name="FAQ"
+        >
+          <summary class="flex justify-between items-center text-black/90 font-bold text-base text-pretty cursor-pointer py-6">
+            {item.question}
+            <ArrowDownIcon class="size-5 rotate" />
+          </summary>
+          <p class="text-black/90 text-base text-pretty py-6">{item.answer}</p>
+        </details>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .rotate {
+    transform: rotate(0);
+    transition: 0.25s transform ease;
+  }
+
+  @supports (interpolate-size: allow-keywords) {
+    :root {
+      interpolate-size: allow-keywords;
+    }
+
+    details {
+      transition: height 0.5s ease;
+      height: 4.5rem;
+
+      &[open] {
+        height: auto;
+        overflow: clip;
+      }
+    }
+  }
+
+  details[open] > summary > .rotate {
+    transform: rotate(180deg);
+  }
+</style>

@@ -1,0 +1,85 @@
+---
+import SectionContainer from "../components/SectionContainer.astro";
+import BlurrySun from "../components/solar-energy/BlurrySun.astro";
+import CompanySlider from "../components/solar-energy/CompanySlider.astro";
+import FAQ from "../components/solar-energy/FAQ.astro";
+import HowWorks from "../components/solar-energy/HowWorks.astro";
+import Instalations from "../components/solar-energy/Instalations.astro";
+import VideoContainer from "../components/solar-energy/VideoContainer.astro";
+import WhatWeDo from "../components/solar-energy/WhatWeDo.astro";
+import WhyUs from "../components/solar-energy/WhyUs.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Optimal Solar Energy"
+  description="Instal.lacions Solars Fotovoltaiques d’autoconsum. Gran estalvi en la teva tarifa elèctrica."
+>
+  <main class="relative overflow-hidden">
+    <BlurrySun />
+    <VideoContainer id="home" />
+    <CompanySlider />
+
+    <SectionContainer id="whyUs" class="lg:max-w-4xl">
+      <h1
+        class="text-4xl text-pretty text-center font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-yellow-500/60 to-50% to-yellow-500 mb-10"
+      >
+        Per què nosaltres?
+      </h1>
+      <WhyUs />
+    </SectionContainer>
+    <SectionContainer id="whyWeDo">
+      <div class="lg:w-2/3 md:w-full flex flex-col items-start gap-y-4 mb-20">
+        <h1
+          class="text-4xl text-pretty font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-yellow-500/60 to-50% to-yellow-500"
+        >
+          Què fem?
+        </h1>
+        <h2 class="text-xl font-semibold text-pretty text-black/90">
+          A Optimal Solar Energy mirem per tu
+        </h2>
+        <p class="text-base text-left text-pretty text-black/90">
+          Una instal.lació solar fotovoltaica d’autoconsum és una instal.lació
+          de plaques solars fotovoltaiques que generen electricitat que
+          utilitzarem pel nostre consum elèctric. Els excedents d’energia que
+          produeixi la solar i que no consumim en la nostra instal.lació
+          interna, es poden abocar a la xarxa elèctrica i vendre o compensar en
+          factura aquests quilowatts segons sigui el tipus de solar instal.lada.
+        </p>
+      </div>
+      <WhatWeDo />
+    </SectionContainer>
+    <SectionContainer id="howWorks">
+      <div class="md:w-2/3 w-full flex flex-col items-start gap-y-4 mb-10">
+        <h1
+          class="text-4xl text-pretty font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-yellow-500/60 to-50% to-yellow-500"
+        >
+          Com funciona?
+        </h1>
+        <p class="text-base text-left text-pretty text-black/90">
+          Veiem els diferents escenaris de funcionament d’una instal.lació solar
+          fotovoltaica:
+        </p>
+      </div>
+      <HowWorks />
+    </SectionContainer>
+    <SectionContainer id="instalations">
+      <h1
+        class="text-4xl text-pretty font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-yellow-500/60 to-50% to-yellow-500 mb-10"
+      >
+        Instal·lacions
+      </h1>
+      <Instalations />
+    </SectionContainer>
+
+    <SectionContainer id="FAQ">
+      <h1
+        class="text-2xl text-pretty font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-yellow-500/60 to-50% to-yellow-500 mb-10"
+      >
+        Preguntes freqüents (FAQ)
+      </h1>
+      <FAQ />
+      <SectionContainer />
+    </SectionContainer>
+  </main>
+</Layout>

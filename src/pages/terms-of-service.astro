@@ -1,0 +1,28 @@
+---
+import SectionContainer from "../components/SectionContainer.astro";
+import BlurrySun from "../components/terms-of-service/BlurrySun.astro";
+import TermsOf from "../components/terms-of-service/TermsOf.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Optimal Solar Energy"
+  description="Instal.lacions Solars Fotovoltaiques d’autoconsum. Gran estalvi en la tarifa elèctrica"
+>
+  <main class="relative overflow-hidden">
+    <BlurrySun />
+    <SectionContainer id="termsOfService" class="lg:max-w-3xl">
+      <div class="w-full flex flex-col items-start gap-y-6 my-10">
+        <h1
+          class="text-4xl text-pretty font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-yellow-500/60 to-50% to-yellow-500"
+        >
+          Termes i condicions generals
+        </h1>
+        <p class="text-base text-left text-pretty text-black/90 font-light">
+          <span class="italic">Última actualització</span>: 20 d'octubre de 2024
+        </p>
+      </div>
+      <TermsOf />
+    </SectionContainer>
+  </main>
+</Layout>

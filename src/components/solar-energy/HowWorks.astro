@@ -1,0 +1,58 @@
+---
+const steps = [
+  {
+    order: "1.",
+    title: "Generació",
+    description:
+      "La instal·lació fotovoltaica genera electricitat a partir de la llum solar.",
+  },
+  {
+    order: "2.",
+    title: "Autoconsum",
+    description:
+      "La instal·lació fotovoltaica autoconsumirà la major part de l’electricitat generada.",
+  },
+  {
+    order: "3.",
+    title: "Excedent",
+    description:
+      "L’electricitat que no s’autoconsumirà es vendrà a la xarxa elèctrica.",
+  },
+  {
+    order: "4.",
+    title: "Compensació",
+    description:
+      "La instal·lació fotovoltaica compensarà la resta de l’electricitat consumida.",
+  },
+];
+---
+
+<div
+  class="w-full flex md:flex-row flex-col-reverse justify-start items-center gap-5"
+>
+  <ol class="md:w-1/2 w-full flex flex-col items-start gap-y-4">
+    {
+      steps.map((step) => (
+        <li class="w-full py-4 border-b border-slate-200">
+          <div class="flex flex-col gap-y-2">
+            <h2 class="font-bold text-xl text-left text-pretty text-black/90">
+              <span class="text-yellow-500">{step.order}</span>
+              {step.title}
+            </h2>
+            <p class="text-base text-left text-pretty text-black/90">
+              {step.description}
+            </p>
+          </div>
+        </li>
+      ))
+    }
+  </ol>
+  <div class="md:w-1/2 w-full flex flex-col items-center">
+    <img
+      src="https://www.helioesfera.com/wp-content/uploads/2019/02/autconsumo_diagrama-889x1024.png"
+      class="w-96"
+      alt="Optimal Solar Energy logo"
+      loading="lazy"
+    />
+  </div>
+</div>

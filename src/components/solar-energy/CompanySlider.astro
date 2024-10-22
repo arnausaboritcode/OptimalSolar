@@ -1,0 +1,69 @@
+---
+interface sliderItem {
+  title: string;
+  url: string;
+}
+
+const images = import.meta.glob(
+  "/public/trustedCompaniesLogos/*.{png,jpg,jpeg}",
+  {
+    eager: true,
+  }
+);
+
+const sliderItems: sliderItem[] = Object.keys(images).map((path) => {
+  const fileName = path
+    .split("/")
+    .pop()
+    ?.replace(/\.(png|jpg|jpeg)$/, "");
+  return {
+    title: fileName || "",
+    url: path.replace("/public", ""),
+  };
+});
+---
+
+<div class="w-full flex flex-col items-center gap-y-8 py-20 overflow-hidden">
+  <p class="text-black/90 text-pretty text-sm font-semibold">
+    Confiats per <span class="text-yellow-500 font-bold">+100</span> empreses
+  </p>
+  <div class="w-full whitespace-nowrap py-10 overflow-hidden relative borders">
+    <ul class="animate-slide inline-block">
+      {
+        sliderItems.map((logo) => (
+          <li class="inline-block">
+            <img
+              class="h-20 mx-10 grayscale"
+              src={logo.url}
+              alt={logo.title}
+              loading="lazy"
+            />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>
+
+<style>
+  .borders::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+    content: "";
+    z-index: 2;
+  }
+  .borders::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+    content: "";
+    z-index: 2;
+  }
+</style>

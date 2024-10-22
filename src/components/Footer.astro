@@ -1,0 +1,108 @@
+---
+import IconBadge from "../components/IconBadge.astro";
+import Mail from "../icons/Socials/Mail.astro";
+import X from "../icons/Socials/X.astro";
+---
+
+<footer class="w-full h-fit bg-yellow-500 relative overflow-hidden">
+  <div
+    class="absolute z-50 -bottom-80 -right-40 w-[500px] h-[500px] bg-white rounded-full filter blur-2xl opacity-30"
+  >
+  </div>
+  <div
+    class="absolute z-50 -top-80 -left-40 w-[500px] h-[500px] bg-white rounded-full filter blur-2xl opacity-30"
+  >
+  </div>
+  <div class="w-full flex flex-col gap-y-2">
+    <div
+      class="w-full h-full flex flex-row gap-10 flex-wrap-reverse justify-between mx-auto max-w-screen-lg p-10 relative overflow-hidden z-10 text-white"
+    >
+      <div class="flex flex-col gap-y-4 justify-center">
+        <a class="w-fit flex items-center gap-x-2" href="/" aria-label="Home">
+          <img
+            class="w-40"
+            src="./tmLogos/full-logo-white.webp"
+            alt="Optimal Solar Energy logo"
+            loading="lazy"
+          />
+        </a>
+        <p class="text-sm text-pretty">
+          © 2024 Optimal Solar Energy · Tots els drets reservats.
+        </p>
+        <a
+          href="/terms-of-service"
+          class="text-sm text-pretty hover:underline hover:underline-offset-2 hover:decoration-white"
+          >Avís legal</a
+        >
+
+        <div class="flex items-center gap-x-3">
+          <IconBadge href="mailto: optimal@optimalenergy.es">
+            <Mail class="size-5" />
+          </IconBadge>
+          <IconBadge href="https://twitter.com/optimalenergy_">
+            <X class="size-5" />
+          </IconBadge>
+        </div>
+      </div>
+      <div class="flex flex-row items-start gap-x-20">
+        <div class="flex flex-col gap-y-4 justify-center">
+          <p class="text-base text-pretty font-bold">Inici</p>
+          <ul class="flex flex-col gap-y-1">
+            <li>
+              <a
+                href="#home"
+                aria-label="energia-solar"
+                class="text-sm text-pretty hover:underline hover:underline-offset-2 hover:decoration-white"
+                >Energia Solar</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                aria-label="movilitat-electrica"
+                class="text-sm text-pretty hover:underline hover:underline-offset-2 hover:decoration-white"
+                >Movilitat elèctrica</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                aria-label="bombes-calor"
+                class="text-sm text-pretty hover:underline hover:underline-offset-2 hover:decoration-white"
+                >Bombes de Calor</a
+              >
+            </li>
+            <li>
+              <a
+                href="mailto: optimal@optimalenergy.es"
+                aria-label="Contacte"
+                class="text-sm text-pretty hover:underline hover:underline-offset-2 hover:decoration-white"
+                >Contacte</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="flex flex-col gap-y-4 justify-center">
+          <p class="text-base text-pretty font-bold">Més</p>
+          <ul class="flex flex-col gap-y-1">
+            <li>
+              <a
+                href="#"
+                class="text-sm text-pretty hover:underline hover:underline-offset-2 hover:decoration-white"
+                >Instal·lacions</a
+              >
+            </li>
+            <li>
+              <a
+                href="#FAQ"
+                class="text-sm text-pretty hover:underline hover:underline-offset-2 hover:decoration-white"
+                >Avís legal</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <span></span>
+    </div>
+  </div>
+</footer>

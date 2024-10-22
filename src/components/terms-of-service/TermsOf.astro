@@ -1,0 +1,40 @@
+---
+const items = [
+  {
+    order: "1.",
+    title: "Responsabilitat",
+    description:
+      "Per mitjà d’aquesta web oferim serveis i continguts de qualitat. Malgrat tot, en algun moment hi pot haver alguna errada en l’exactitud, veracitat o vigència dels continguts que serà esmenada tan aviat en tinguem constància. No ens fem responsables en cap cas dels  danys o perjudicis de qualsevol natura que aquestes errades poguessin ocasionar a l’usuari. Així mateix, tot i que es prenen les mesures tecnològiques necessàries per evitar-ho, no podem fer-nos responsables de la presència de virus o altres elements nocius que poguessin perjudicar el sistema informàtic o arxius de l’usuari. Tanmateix no som responsables de les informacions o problemes que hi poguessin haver en les pàgines web externes que vinculem mitjançant enllaços a través de la nostra web.",
+  },
+  {
+    order: "2.",
+    title: "Propietat industrial i intel·lectual",
+    description:
+      "La totalitat del contingut d’aquesta web està protegit per drets de propietat industrial i intel·lectual que tenen de ser respectats per l’usuari. Tots els drets estan reservats. L’ús no autoritzat de la informació continguda en la web, la seva revenda, reproducció, excepte per a ús personal i privat, distribució i comunicació pública en qualsevol suport i per qualsevol mitjà, queden prohibits sense autorització expressa del propietari de la web. L’incompliment d’aquests drets donarà lloc a les responsabilitats legalment establertes.",
+  },
+  {
+    order: "3.",
+    title: "Protecció de dades",
+    description:
+      "De conformitat amb el que disposa la Llei Orgànica 15/1999 de 13 de Desembre de Protecció de Dades de Caràcter Personal (LOPD), l’informem que les dades que es facilitin en qualsevol formulari passaran a formar part del fitxer de titularitat del propietari de la web, destinat a poder atendre adequadament les seves peticions i poder contactar amb vostès. Poden exercir els drets d’accés, rectificació, cancel·lació i oposició que contempla la Llei a través de l’adreça optimal@optimalenergy.es",
+  },
+];
+---
+
+<ol class="w-full flex flex-col gap-y-10">
+  {
+    items.map((item) => (
+      <li class="w-full flex md:flex-row flex-col gap-8">
+        <div class="w-full flex flex-col justify-start gap-y-4">
+          <h2 class="text-2xl font-bold text-pretty text-black/90">
+            <span>{item.order}</span>
+            {item.title}
+          </h2>
+          <p class="text-base text-left text-pretty text-black/90 font-light leading-8">
+            {item.description}
+          </p>
+        </div>
+      </li>
+    ))
+  }
+</ol>

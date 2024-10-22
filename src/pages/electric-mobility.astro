@@ -1,0 +1,66 @@
+---
+import BlurrySun from "../components/electric-mobility/BlurrySun.astro";
+import FAQ from "../components/electric-mobility/FAQ.astro";
+import Presentation from "../components/electric-mobility/Presentation.astro";
+import Profit from "../components/electric-mobility/Profit.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import Coins from "../icons/Coins.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Optimal Solar Energy"
+  description="Instal.lacions Solars Fotovoltaiques arreu de tot el pais."
+>
+  <main class="relative overflow-hidden">
+    <BlurrySun />
+    <SectionContainer id="presentation">
+      <h1
+        class="text-4xl text-center text-pretty font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-yellow-500/60 to-50% to-yellow-500 my-10"
+      >
+        El futur és elèctric
+      </h1>
+      <Presentation />
+    </SectionContainer>
+    <SectionContainer id="profit">
+      <h1
+        class="text-4xl text-center text-pretty font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-yellow-500/60 to-50% to-yellow-500 mb-10"
+      >
+        Calcula el benefici
+      </h1>
+      <Profit />
+    </SectionContainer>
+    <SectionContainer id="study">
+      <div class="w-full flex flex-col items-start gap-y-4 mb-10">
+        <h1
+          class="text-4xl text-pretty font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-yellow-500/60 to-50% to-yellow-500"
+        >
+          Estudi i Contacte
+        </h1>
+        <h2 class="text-xl font-semibold text-pretty text-black/90">
+          Preu adaptat a les teves necessitats
+        </h2>
+        <p class="text-base text-left text-pretty text-black/90">
+          Descobreix totes les opcions que t'oferim per a la teva mobilitat
+          sol·licitant un estudio personalitzat.
+        </p>
+
+        <a
+          href="mailto: optimal@optimalenergy.es"
+          aria-label="Contacte"
+          class="flex items-center gap-x-2 text-sm text-white text-pretty font-semibold bg-yellow-500 px-6 py-1.5 rounded-lg hover:bg-black/80 hover:text-white transition duration-200 mt-8"
+        >
+          <Coins /> Obtenir pressupost</a
+        >
+      </div>
+    </SectionContainer>
+    <SectionContainer id="FAQs">
+      <h1
+        class="text-2xl text-pretty font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-yellow-500/60 to-50% to-yellow-500 mb-10"
+      >
+        Preguntes freqüents (FAQ)
+      </h1>
+      <FAQ />
+    </SectionContainer>
+  </main>
+</Layout>

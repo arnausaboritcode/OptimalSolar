@@ -1,0 +1,119 @@
+---
+interface navItem {
+  title: string;
+  label: string;
+  url: string;
+}
+
+const navItems: navItem[] = [
+  {
+    title: "Energia Solar",
+    label: "energia-solar",
+    url: "/",
+  },
+  {
+    title: "Movilitat Elèctrica",
+    label: "movilitat-electrica",
+    url: "/electric-mobility",
+  },
+  {
+    title: "Bombes de Calor",
+    label: "bombes-calor",
+    url: "/heat-pumps",
+  },
+];
+
+import Menu from "../icons/Menu.astro";
+---
+
+<header class="w-full fixed top-0 left-0 z-50">
+  <nav class="bg-white px-4 py-1 shadow-sm">
+    <div
+      class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl"
+    >
+      <a class="flex items-center justify-center" href="/" aria-label="Home">
+        <img
+          class="w-40"
+          src="./tmLogos/full-logo.webp"
+          alt="Optimal Solar Energy logo"
+          loading="lazy"
+        />
+      </a>
+
+      <ul
+        class="hidden md:flex items-center gap-x-10 text-[0.9rem] text-pretty text-black/80 font-medium"
+      >
+        {
+          navItems.map((link) => (
+            <li class="w-fit">
+              <a
+                class="block p-2 hover:underline hover:underline-offset-2 hover:decoration-2 hover:decoration-yellow-500"
+                aria-label={link.label}
+                href={link.url}
+              >
+                {link.title}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <a
+        href="mailto: optimal@optimalenergy.es"
+        aria-label="Contacte"
+        class="hidden md:block text-sm text-black/80 text-pretty font-semibold border border-black/80 px-6 py-1 rounded-lg hover:bg-black/80 hover:text-white transition duration-200"
+        >Contacte</a
+      >
+      <div class="block md:hidden">
+        <button
+          class="flex justify-center items-center group"
+          aria-pressed="false"
+          onclick="this.setAttribute('aria-pressed', !(this.getAttribute('aria-pressed') === 'true'))"
+        >
+          <Menu class="size-6 menu" />
+        </button>
+      </div>
+      <div
+        class="hidden md:hidden w-dvw h-dvh bg-white z-10 relative mt-8 mobile-items"
+      >
+        <ul
+          class="flex flex-col items-start gap-y-4 text-black/80 text-pretty text-xl font-semibold"
+        >
+          {
+            navItems.map((link) => (
+              <li class="w-fit">
+                <a
+                  class="block p-2 hover:underline hover:underline-offset-2 hover:decoration-2 hover:decoration-yellow-500"
+                  aria-label={link.label}
+                  href={link.url}
+                >
+                  {link.title}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <div class="w-full fixed bottom-5 -left-5 flex justify-end">
+          <a
+            href="mailto: optimal@optimalenergy.es"
+            aria-label="Contacte"
+            class="text-base text-pretty text-black/80 font-semibold border border-black/80 px-6 py-1 rounded-lg hover:bg-black/80 hover:text-white transition duration-200"
+            >Contacte</a
+          >
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  document.addEventListener("astro:page-load", (event) => {
+    const menu = document.querySelector<HTMLButtonElement>(".menu");
+    const mobileItems = document.querySelector<HTMLDivElement>(".mobile-items");
+
+    function toggleMenu() {
+      mobileItems?.classList.toggle("hidden");
+    }
+
+    menu?.addEventListener("click", toggleMenu);
+  });
+</script>

@@ -1,0 +1,26 @@
+---
+import AllInstalations from "../components/AllInstalations.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Optimal Solar Energy"
+  description="Instal.lacions Solars Fotovoltaiques arreu de tot el pais."
+>
+  <main class="relative overflow-hidden">
+    <SectionContainer id="instalations" class="lg:max-w-4xl">
+      <div class="w-full flex flex-col items-center gap-y-4 my-10">
+        <h1
+          class="text-4xl text-pretty font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-yellow-500/60 to-50% to-yellow-500"
+        >
+          Instal·lacions
+        </h1>
+        <h2 class="text-lg font-semibold text-pretty text-black/60">
+          400 kW instalats en 20 comarques
+        </h2>
+      </div>
+      <AllInstalations />
+    </SectionContainer>
+  </main>
+</Layout>

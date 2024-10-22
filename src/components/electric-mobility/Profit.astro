@@ -1,0 +1,262 @@
+<div class="w-full flex flex-col justify-center items-center gap-5">
+  <div class="flex md:flex-row flex-col items-center justify-center gap-10">
+    <div class="md:w-1/2 w-full border border-black/90 rounded-lg">
+      <div class="w-full flex flex-col items-start gap-y-8 py-8 px-5">
+        <div class="flex flex-col gap-y-2">
+          <h2 class="font-bold text-xl text-left text-pretty text-black/90">
+            Aumenta els beneficis
+          </h2>
+          <p class="text-base text-left text-pretty text-black/60">
+            Implementa estaciones de carga y aumentar tus ganancias
+          </p>
+        </div>
+
+        <div class="w-full">
+          <div class="w-full flex items-center justify-between">
+            <label
+              for="capacity-range-cost"
+              class="block text-black/90 font-medium mb-2"
+              >Capacitat de la batería</label
+            >
+            <div class="flex items-center gap-x-1">
+              <p class="font-bold text-xl" id="capacity-value">500</p>
+              <span class="font-bold text-xs">kWh</span>
+            </div>
+          </div>
+          <input
+            type="range"
+            id="capacity-range-cost"
+            class="w-full"
+            min="0"
+            max="1000"
+            step="50"
+            value="500"
+          />
+        </div>
+
+        <div class="w-full">
+          <div class="w-full flex items-center justify-between">
+            <label
+              for="price-range"
+              class="block text-black/90 font-medium mb-2">Tarifa per Kwh</label
+            >
+            <div class="flex items-center gap-x-1">
+              <p class="font-bold text-xl" id="price-value">0.20</p>
+              <span class="font-bold text-xs">€/kWh</span>
+            </div>
+          </div>
+          <input
+            type="range"
+            id="price-range"
+            class="w-full"
+            min="0.05"
+            max="0.50"
+            step="0.01"
+            value="0.20"
+          />
+        </div>
+      </div>
+
+      <div
+        class="w-full flex flex-col items-center justify-center bg-yellow-200/40 p-6"
+      >
+        <p
+          class="text-black/90 font-bold text-pretty text-3xl"
+          id="cost-display"
+        >
+          100 €
+        </p>
+        <p class="text-black/60 text-pretty text-base">Cost anual</p>
+      </div>
+    </div>
+
+    <div class="md:w-1/2 w-full border border-black/90 rounded-lg">
+      <div class="w-full flex flex-col items-start gap-y-8 py-8 px-5">
+        <div class="flex flex-col gap-y-2">
+          <h2 class="font-bold text-xl text-left text-pretty text-black/90">
+            Temps de càrrega
+          </h2>
+          <p class="text-base text-left text-pretty text-black/60">
+            Implementa estaciones de carga y aumentar tus ganancias
+          </p>
+        </div>
+
+        <div class="w-full">
+          <div class="w-full flex items-center justify-between">
+            <label
+              for="capacity-range-time"
+              class="block text-black/90 font-medium mb-2"
+              >Capacitat de la batería</label
+            >
+            <div class="flex items-center gap-x-1">
+              <p class="font-bold text-xl" id="battery-value">500</p>
+              <span class="font-bold text-xs">kWh</span>
+            </div>
+          </div>
+          <input
+            type="range"
+            id="capacity-range-time"
+            class="w-full"
+            min="0"
+            max="1000"
+            step="50"
+            value="500"
+          />
+        </div>
+
+        <div class="w-full">
+          <div class="w-full flex items-center justify-between">
+            <label
+              for="power-range"
+              class="block text-black/90 font-medium mb-2"
+              >Potència del carregador</label
+            >
+            <div class="flex items-center gap-x-1">
+              <p class="font-bold text-xl" id="power-value">50</p>
+              <span class="font-bold text-xs">kW</span>
+            </div>
+          </div>
+          <input
+            type="range"
+            id="power-range"
+            class="w-full"
+            min="10"
+            max="150"
+            step="5"
+            value="50"
+          />
+        </div>
+      </div>
+
+      <div
+        class="w-full flex flex-col items-center justify-center bg-yellow-200/40 p-6"
+      >
+        <p
+          class="text-black/90 font-bold text-pretty text-3xl"
+          id="time-display"
+        >
+          10 h
+        </p>
+        <p class="text-black/60 text-pretty text-base">Temps estimat</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    document
+      .getElementById("price-range")!
+      .addEventListener("input", (event) => {
+        const target = event.target as HTMLInputElement;
+        updatePrice(target.value);
+      });
+    document
+      .getElementById("capacity-range-cost")!
+      .addEventListener("input", (event) => {
+        const target = event.target as HTMLInputElement;
+        updateCapacityCost(target.value);
+      });
+    document
+      .getElementById("capacity-range-time")!
+      .addEventListener("input", (event) => {
+        const target = event.target as HTMLInputElement;
+        updateCapacityTime(target.value);
+      });
+    document
+      .getElementById("power-range")!
+      .addEventListener("input", (event) => {
+        const target = event.target as HTMLInputElement;
+        updatePower(target.value);
+      });
+
+    function updateCapacityCost(value: string) {
+      document.getElementById("capacity-value")!.textContent = `${value}`;
+      calculateCost();
+      calculateTime();
+    }
+    function updateCapacityTime(value: string) {
+      document.getElementById("battery-value")!.textContent = `${value}`;
+      calculateCost();
+      calculateTime();
+    }
+
+    function updatePrice(value: string) {
+      document.getElementById("price-value")!.textContent = `${value}`;
+      calculateCost();
+    }
+
+    function updatePower(value: string) {
+      document.getElementById("power-value")!.textContent = `${value}`;
+      calculateTime();
+    }
+
+    function calculateCost() {
+      const capacity = (
+        document.getElementById("capacity-range-cost") as HTMLInputElement
+      ).value;
+      const price = (document.getElementById("price-range") as HTMLInputElement)
+        .value;
+      const cost = parseFloat(capacity) * parseFloat(price);
+      document.getElementById("cost-display")!.textContent =
+        `${cost.toFixed(2)} €`;
+    }
+
+    function calculateTime() {
+      const capacity = (
+        document.getElementById("capacity-range-time") as HTMLInputElement
+      ).value;
+      const power = (document.getElementById("power-range") as HTMLInputElement)
+        .value;
+      const time = parseFloat(capacity) / parseFloat(power);
+      document.getElementById("time-display")!.textContent =
+        `${time.toFixed(2)} h`;
+    }
+
+    calculateCost();
+    calculateTime();
+  });
+</script>
+
+<style>
+  input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: red;
+    cursor: grab;
+    width: 100%;
+  }
+
+  input[type="range"]:focus {
+    cursor: grabbing;
+  }
+
+  input[type="range"]::-webkit-slider-runnable-track {
+    background: rgb(234, 179, 8);
+    height: 0.15rem;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    margin-top: -8px;
+    background-color: white;
+    border: 3px solid rgb(234, 179, 8);
+    border-radius: 100%;
+    height: 1.2rem;
+    width: 1.2rem;
+  }
+
+  input[type="range"]::-moz-range-track {
+    background: rgb(234, 179, 8);
+    height: 0.15rem;
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    background-color: white;
+    border: 3px solid rgb(234, 179, 8);
+    border-radius: 100%;
+    height: 1.2rem;
+    width: 1.2rem;
+  }
+</style>

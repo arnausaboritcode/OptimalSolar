@@ -1,0 +1,53 @@
+---
+import Benefits from "../components/heat-pumps/Benefits.astro";
+import BlurrySun from "../components/heat-pumps/BlurrySun.astro";
+import FAQ from "../components/heat-pumps/FAQ.astro";
+import Presentation from "../components/heat-pumps/Presentation.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Optimal Solar Energy"
+  description="Instal.lacions Solars Fotovoltaiques arreu de tot el pais."
+>
+  <main class="relative overflow-hidden">
+    <BlurrySun />
+    <SectionContainer id="presentation">
+      <h1
+        class="text-4xl text-center text-pretty font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-yellow-500/60 to-50% to-yellow-500 my-10"
+      >
+        La calor sostenible és aquí
+      </h1>
+
+      <Presentation />
+    </SectionContainer>
+    <SectionContainer id="presentation">
+      <div class="lg:w-2/3 md:w-full flex flex-col items-start gap-y-4 mb-10">
+        <h1
+          class="text-4xl text-pretty font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-yellow-500/60 to-50% to-yellow-500"
+        >
+          Sostenibilitat i eficiència
+        </h1>
+        <h2 class="text-xl font-semibold text-pretty text-black/90">
+          Una mesure d'estalvi
+        </h2>
+        <p class="text-base text-left text-pretty text-black/90">
+          Las bombas de calor industriales funcionan elevando la temperatura del
+          entorno (como agua o gestión de residuos) para aumentar el calor
+          disponible.
+        </p>
+      </div>
+      <Benefits />
+    </SectionContainer>
+
+    <SectionContainer id="FAQs">
+      <h1
+        class="text-2xl text-pretty font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-yellow-500/60 to-50% to-yellow-500 mb-10"
+      >
+        Preguntes freqüents (FAQ)
+      </h1>
+      <FAQ />
+    </SectionContainer>
+  </main>
+</Layout>
